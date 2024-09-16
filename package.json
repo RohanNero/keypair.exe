@@ -1,15 +1,16 @@
 {
-  "name": "minimal-keypair",
+  "name": "keypair.exe",
   "version": "0.0.1",
-  "description": "Minimal scripts for keypair generation and message signing using the @noble/secp256k1 library",
+  "description": "Scripts and executables for keypair generation, and both message signing and message verification using the @noble/secp256k1 and @noble/hashes libraries.",
   "files": [
     "create.js",
-    "sign.js"
+    "sign.js",
+    "verify.js"
   ],
   "dependencies": {
     "@noble/hashes": "^1.5.0",
     "@noble/secp256k1": "^2.1.0"
   },
   "type": "module",
-  "license": "MIT"
+  "license": "GPL-3.0-only"
 }
