@@ -17,18 +17,19 @@ function create() {
   const colors = {
     reset: "\x1b[0m",
     bright: "\x1b[1m",
-    dim: "\x1b[2m",
     cyan: "\x1b[36m",
     yellow: "\x1b[33m",
     green: "\x1b[32m",
     blue: "\x1b[34m",
     red: "\x1b[31m",
-    magenta: "\x1b[35m"
+    magenta: "\x1b[35m",
   };
-  
+
   console.log(`
   ${colors.cyan}╔═══════════════════════════════════╗${colors.reset}
-  ${colors.cyan}║${colors.reset}   ${colors.yellow}🔑     KEY GENERATION    🔑${colors.reset}     ${colors.cyan}║${colors.reset}
+  ${colors.cyan}║${colors.reset}   ${colors.yellow}🔑     KEY GENERATION    🔑${
+    colors.reset
+  }     ${colors.cyan}║${colors.reset}
   ${colors.cyan}╚═══════════════════════════════════╝${colors.reset}
   
   ${colors.bright}Private Key:${colors.reset}  
@@ -47,12 +48,11 @@ function create() {
   
   ${colors.red}Closing after 1 minute...${colors.reset}
   `);
-  
-    // Keep the window open for 60 seconds before ending execution
-    setTimeout(() => {
-      
-      process.exit();
-    }, 60000);
+
+  // Keep the window open for 60 seconds before ending execution
+  setTimeout(() => {
+    process.exit();
+  }, 60000);
 }
 
 create();
