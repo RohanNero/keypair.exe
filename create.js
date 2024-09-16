@@ -49,7 +49,6 @@ function create() {
   ${colors.red}Closing after 1 minute...${colors.reset}
   `);
 
-  // Keep the window open for 60 seconds before ending execution
   setTimeout(() => {
     process.exit();
   }, 60000);

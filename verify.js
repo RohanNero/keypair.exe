@@ -7,6 +7,7 @@ import readline from "readline";
 secp.etc.hmacSha256Sync = (k, ...m) =>
   hmac(sha256, k, secp.etc.concatBytes(...m));
 
+// node.js 18 and older, requires polyfilling globalThis.crypto
 if (!globalThis.crypto) globalThis.crypto = webcrypto;
 
 const colors = {
