@@ -91,3 +91,19 @@ Verify.js:
 ```shell
 nexe verify.js -o verify.exe --build --target windows-x64-16.17.1
 ```
+
+## Output
+
+Images of what will be displayed in the terminal after running the scripts/executables.
+
+## Create
+
+![image](./images/create-output.png)
+
+## Sign
+
+![image](./images/sign-output.png)
+
+## Verify
+
+![image](./images/verify-output.png)
