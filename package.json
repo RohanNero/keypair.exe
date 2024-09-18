@@ -11,9 +11,9 @@
     "create": "node scripts/create.js",
     "sign": "node scripts/sign.js",
     "verify": "node scripts/verify.js",
-    "buildCreate": "nexe scripts/create.js -o executables/create.exe --build --target windows-x64-16.17.1",
-    "buildSign": "nexe scripts/sign.js -o executables/sign.exe --build --target windows-x64-16.17.1",
-    "buildVerify": "nexe scripts/verify.js -o executables/verify.exe --build --target windows-x64-16.17.1"
+    "build-create": "nexe scripts/create.js -o executables/create.exe --build --target windows-x64-16.17.1",
+    "build-sign": "nexe scripts/sign.js -o executables/sign.exe --build --target windows-x64-16.17.1",
+    "build-verify": "nexe scripts/verify.js -o executables/verify.exe --build --target windows-x64-16.17.1"
   },
   "dependencies": {
     "@noble/hashes": "^1.5.0",
