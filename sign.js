@@ -17,21 +17,21 @@ const sign = async (privKey, msgHash) => {
   const signature = await secp.signAsync(msgHash, privKey);
   const isValid = secp.verify(signature, msgHash, pubKey);
 
-  console.log(`${colors.cyan}${colors.bright}╔══════════════════════════════════╗${colors.reset}`);
-  console.log(`${colors.cyan}${colors.bright}║${colors.reset}${colors.yellow}         MESSAGE SIGNING${colors.cyan}${colors.bright}          ║${colors.reset}`);
-  console.log(`${colors.cyan}${colors.bright}╚══════════════════════════════════╝${colors.reset}`);
-  console.log(`${colors.bright}Signature:${colors.reset}`);
-  console.log(`   ${colors.yellow}r: ${colors.green}${signature.r}${colors.reset}`);
-  console.log(`   ${colors.yellow}s: ${colors.green}${signature.s}${colors.reset}`);
-  console.log(`   ${colors.yellow}recovery: ${colors.green}${signature.recovery}${colors.reset}`);
+  console.log(`${colors.cyan}${colors.bright} ╔══════════════════════════════════╗${colors.reset}`);
+  console.log(`${colors.cyan}${colors.bright} ║${colors.reset}${colors.yellow}         MESSAGE SIGNING${colors.cyan}${colors.bright}          ║${colors.reset}`);
+  console.log(`${colors.cyan}${colors.bright} ╚══════════════════════════════════╝${colors.reset}`);
+  console.log(`${colors.bright} Signature:${colors.reset}`);
+  console.log(`   ${colors.yellow} r: ${colors.green}${signature.r}${colors.reset}`);
+  console.log(`   ${colors.yellow} s: ${colors.green}${signature.s}${colors.reset}`);
+  console.log(`   ${colors.yellow} recovery: ${colors.green}${signature.recovery}${colors.reset}`);
   console.log('\n');
-  console.log(`${colors.bright}Compact Signature:${colors.reset}`);
+  console.log(`${colors.bright} Compact Signature:${colors.reset}`);
   console.log(`   ${colors.blue}${signature.toCompactHex()}${colors.reset}`);
   console.log('\n');
-  console.log(`${colors.bright}Is Valid:${colors.reset}`);
+  console.log(`${colors.bright} Is Valid:${colors.reset}`);
   console.log(`   ${colors.magenta}${isValid}${colors.reset}`);
-  console.log(`${colors.cyan}${colors.bright}═════════════════════════════════════${colors.reset}`);
-  console.log(`${colors.red}Closing in 1 minute...${colors.reset}`);
+  console.log(`${colors.cyan}${colors.bright} ═════════════════════════════════════${colors.reset}`);
+  console.log(`${colors.red} Closing in 1 minute...${colors.reset}`);
 
   setTimeout(() => {
     process.exit();

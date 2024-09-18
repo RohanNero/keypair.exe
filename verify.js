@@ -14,22 +14,22 @@ if (!globalThis.crypto) globalThis.crypto = webcrypto;
 const verify = async (signature, msgHash, pubKey) => {
   const isValid = secp.verify(signature, msgHash, pubKey);
 
-  console.log(`${colors.cyan}${colors.bright}╔══════════════════════════════════╗${colors.reset}`);
-  console.log(`${colors.cyan}${colors.bright}║${colors.reset}${colors.yellow}      SIGNATURE VERIFICATION${colors.cyan}${colors.bright}      ║${colors.reset}`);
-  console.log(`${colors.cyan}${colors.bright}╚══════════════════════════════════╝${colors.reset}`);
-  console.log(`${colors.bright}Signature:${colors.reset}`);
+  console.log(`${colors.cyan}${colors.bright} ╔══════════════════════════════════╗${colors.reset}`);
+  console.log(`${colors.cyan}${colors.bright} ║${colors.reset}${colors.yellow}      SIGNATURE VERIFICATION${colors.cyan}${colors.bright}      ║${colors.reset}`);
+  console.log(`${colors.cyan}${colors.bright} ╚══════════════════════════════════╝${colors.reset}`);
+  console.log(`${colors.bright} Signature:${colors.reset}`);
   console.log(`   ${colors.green}${signature}${colors.reset}`);
   console.log('\n');
-  console.log(`${colors.bright}Message Hash:${colors.reset}`);
+  console.log(`${colors.bright} Message Hash:${colors.reset}`);
   console.log(`   ${colors.blue}${msgHash}${colors.reset}`);
   console.log('\n');
-  console.log(`${colors.bright}Public Key:${colors.reset}`);
+  console.log(`${colors.bright} Public Key:${colors.reset}`);
   console.log(`   ${colors.yellow}${pubKey}${colors.reset}`);
   console.log('\n');
-  console.log(`${colors.bright}Is Valid:${colors.reset}`);
+  console.log(`${colors.bright} Is Valid:${colors.reset}`);
   console.log(`   ${colors.magenta}${isValid}${colors.reset}`);
-  console.log(`${colors.cyan}${colors.bright}═════════════════════════════════════${colors.reset}`);
-  console.log(`${colors.red}Closing after 1 minute...${colors.reset}`);
+  console.log(`${colors.cyan}${colors.bright} ═════════════════════════════════════${colors.reset}`);
+  console.log(`${colors.red} Closing after 1 minute...${colors.reset}`);
 
   setTimeout(() => {
     process.exit();
