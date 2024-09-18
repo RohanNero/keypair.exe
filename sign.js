@@ -31,7 +31,7 @@ const sign = async (privKey, msgHash) => {
   console.log(`${colors.bright} Is Valid:${colors.reset}`);
   console.log(`   ${colors.magenta}${isValid}${colors.reset}`);
   console.log(`${colors.cyan}${colors.bright} ═════════════════════════════════════${colors.reset}`);
-  console.log(`${colors.red} Closing in 1 minute...${colors.reset}`);
+  console.log(`${colors.red} Closing after 1 minute...${colors.reset}`);
 
   setTimeout(() => {
     process.exit();
