@@ -2,7 +2,7 @@ import * as secp from "@noble/secp256k1";
 import { hmac } from "@noble/hashes/hmac";
 import { sha256 } from "@noble/hashes/sha256";
 import { webcrypto } from "node:crypto";
-import { colors } from "./constants.js";
+import { colors } from "./constants.js"
 import readline from "readline";
 
 secp.etc.hmacSha256Sync = (k, ...m) =>
@@ -14,29 +14,21 @@ if (!globalThis.crypto) globalThis.crypto = webcrypto;
 const verify = async (signature, msgHash, pubKey) => {
   const isValid = secp.verify(signature, msgHash, pubKey);
 
-  console.log(
-    `${colors.cyan}${colors.bright}╔══════════════════════════════════╗${colors.reset}`
-  );
-  console.log(
-    `${colors.cyan}${colors.bright}║${colors.reset}${colors.yellow}      SIGNATURE VERIFICATION${colors.cyan}${colors.bright}      ║${colors.reset}`
-  );
-  console.log(
-    `${colors.cyan}${colors.bright}╚══════════════════════════════════╝${colors.reset}`
-  );
+  console.log(`${colors.cyan}${colors.bright}╔══════════════════════════════════╗${colors.reset}`);
+  console.log(`${colors.cyan}${colors.bright}║${colors.reset}${colors.yellow}      SIGNATURE VERIFICATION${colors.cyan}${colors.bright}      ║${colors.reset}`);
+  console.log(`${colors.cyan}${colors.bright}╚══════════════════════════════════╝${colors.reset}`);
   console.log(`${colors.bright}Signature:${colors.reset}`);
   console.log(`   ${colors.green}${signature}${colors.reset}`);
-  console.log("\n");
+  console.log('\n');
   console.log(`${colors.bright}Message Hash:${colors.reset}`);
   console.log(`   ${colors.blue}${msgHash}${colors.reset}`);
-  console.log("\n");
+  console.log('\n');
   console.log(`${colors.bright}Public Key:${colors.reset}`);
   console.log(`   ${colors.yellow}${pubKey}${colors.reset}`);
-  console.log("\n");
+  console.log('\n');
   console.log(`${colors.bright}Is Valid:${colors.reset}`);
   console.log(`   ${colors.magenta}${isValid}${colors.reset}`);
-  console.log(
-    `${colors.cyan}${colors.bright}═════════════════════════════════════${colors.reset}`
-  );
+  console.log(`${colors.cyan}${colors.bright}═════════════════════════════════════${colors.reset}`);
   console.log(`${colors.red}Closing after 1 minute...${colors.reset}`);
 
   setTimeout(() => {
