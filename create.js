@@ -9,18 +9,42 @@ secp.etc.hmacSha256Sync = (k, ...m) =>
 // node.js 18 and older, requires polyfilling globalThis.crypto
 if (!globalThis.crypto) globalThis.crypto = webcrypto;
 
+
+const colors = {
+  reset: "\x1b[0m",
+  bright: "\x1b[1m",
+  cyan: "\x1b[36m",
+  yellow: "\x1b[33m",
+  green: "\x1b[32m",
+  blue: "\x1b[34m",
+  magenta: "\x1b[35m",
+  red: "\x1b[31m",
+};
+
 function create() {
   const privKey = secp.utils.randomPrivateKey();
   const pubKey = secp.getPublicKey(privKey, false);
   const compressedPubKey = secp.getPublicKey(privKey);
   const hashPubKey = secp.etc.bytesToHex(sha256(pubKey));
 
-  console.log("Key Generation");
-  console.log("Private Key:", secp.etc.bytesToHex(privKey));
-  console.log("Address:", hashPubKey.slice(-40));
-  console.log("Public Key:", secp.etc.bytesToHex(pubKey));
-  console.log("Compressed PubKey:", secp.etc.bytesToHex(compressedPubKey));
-  console.log("Closing after 1 minute...");
+  
+  console.log(`${colors.cyan}${colors.bright}╔═══════════════════════════════════╗${colors.reset}`);
+  console.log(`${colors.cyan}${colors.bright}║${colors.reset}${colors.yellow}          KEY GENERATION${colors.cyan}${colors.bright}           ║${colors.reset}`);
+  console.log(`${colors.cyan}${colors.bright}╚═══════════════════════════════════╝${colors.reset}`);
+
+  console.log(`${colors.bright}Private Key:${colors.reset}`);
+  console.log(`${colors.green}${secp.etc.bytesToHex(privKey)}${colors.reset}`)
+  console.log('\n')
+  console.log(`${colors.bright}Address:${colors.reset}`);
+  console.log(`${colors.blue}${hashPubKey.slice(-40)}${colors.reset}`)
+  console.log('\n')
+  console.log(`${colors.bright}Public Key:${colors.reset}`);
+  console.log(`${colors.yellow}${secp.etc.bytesToHex(pubKey)}${colors.reset}`)
+  console.log('\n')
+  console.log(`${colors.bright}Compressed PubKey:${colors.reset}`);
+  console.log(`${colors.magenta}${secp.etc.bytesToHex(compressedPubKey)}${colors.reset}`)
+  console.log(`${colors.cyan}${colors.bright}═════════════════════════════════════${colors.reset}${colors.reset}`);
+  console.log(`${colors.red}Closing after 1 minute...${colors.reset}`);
 
   setTimeout(() => {
     process.exit();
