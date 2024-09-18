@@ -10,48 +10,18 @@ secp.etc.hmacSha256Sync = (k, ...m) =>
 // node.js 18 and older, requires polyfilling globalThis.crypto
 if (!globalThis.crypto) globalThis.crypto = webcrypto;
 
-const colors = {
-  reset: "\x1b[0m",
-  bright: "\x1b[1m",
-  cyan: "\x1b[36m",
-  yellow: "\x1b[33m",
-  green: "\x1b[32m",
-  blue: "\x1b[34m",
-  red: "\x1b[31m",
-  magenta: "\x1b[35m",
-};
-
 const sign = async (privKey, msgHash) => {
   const pubKey = secp.getPublicKey(privKey);
   const signature = await secp.signAsync(msgHash, privKey);
   const isValid = secp.verify(signature, msgHash, pubKey);
-
-  console.log(`
-  ${colors.cyan}╔═══════════════════════════════════╗${colors.reset}
-  ${colors.cyan}║${colors.reset}   ${
-    colors.yellow
-  }✍️     MESSAGE SIGNING    ✍️${colors.reset}      ${colors.cyan}║${
-    colors.reset
-  }
-  ${colors.cyan}╚═══════════════════════════════════╝${colors.reset}
-
-  ${colors.bright}Signature:${colors.reset}      
-  ${colors.yellow}r:${colors.reset}${colors.green} ${signature.r}${colors.reset}
-  ${colors.yellow}s:${colors.reset}${colors.green} ${signature.s}${colors.reset}
-  ${colors.yellow}recovery:${colors.reset}${colors.green} ${
-    signature.recovery
-  }${colors.reset}
-
-  ${colors.bright}Compact Signature:${colors.reset}  
-  ${colors.blue}0x${signature.toCompactHex()}${colors.reset}
-
-  ${colors.bright}Is Valid:${colors.reset}       
-  ${colors.magenta}${isValid}${colors.reset}
-
-  ${colors.cyan}═════════════════════════════════════${colors.reset}
-
-  ${colors.red}Closing after 1 minute...${colors.reset}
-  `);
+  console.log("Message Signing");
+  console.log("Signature:");
+  console.log("   r:", signature.r);
+  console.log("   s:", signature.s);
+  console.log("   recovery:", signature.recovery);
+  console.log("Compact Signature:", signature.toCompactHex());
+  console.log("Is Valid:", isValid);
+  console.log("Closing in 1 minute...");
 
   setTimeout(() => {
     process.exit();
@@ -66,9 +36,7 @@ const rl = readline.createInterface({
 rl.question("Enter private key: ", (privKey) => {
   rl.question("Enter message hash: ", (msgHash) => {
     if (!privKey || !msgHash) {
-      console.error(
-        `${colors.red}Error: Both private key and message hash are required.${colors.reset}`
-      );
+      console.error("Error: Both private key and message hash are required.");
       rl.close();
     } else {
       sign(privKey, msgHash).then(() => rl.close());

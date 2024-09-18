@@ -14,40 +14,13 @@ function create() {
   const pubKey = secp.getPublicKey(privKey, false);
   const compressedPubKey = secp.getPublicKey(privKey);
   const hashPubKey = secp.etc.bytesToHex(sha256(pubKey));
-  const colors = {
-    reset: "\x1b[0m",
-    bright: "\x1b[1m",
-    cyan: "\x1b[36m",
-    yellow: "\x1b[33m",
-    green: "\x1b[32m",
-    blue: "\x1b[34m",
-    red: "\x1b[31m",
-    magenta: "\x1b[35m",
-  };
 
-  console.log(`
-  ${colors.cyan}╔═══════════════════════════════════╗${colors.reset}
-  ${colors.cyan}║${colors.reset}   ${colors.yellow}🔑     KEY GENERATION    🔑${
-    colors.reset
-  }     ${colors.cyan}║${colors.reset}
-  ${colors.cyan}╚═══════════════════════════════════╝${colors.reset}
-  
-  ${colors.bright}Private Key:${colors.reset}  
-  ${colors.green}${secp.etc.bytesToHex(privKey)}${colors.reset}
-  
-  ${colors.bright}Address:${colors.reset}      
-  ${colors.blue}0x${hashPubKey.slice(-40)}${colors.reset}
-  
-  ${colors.bright}Public Key:${colors.reset}   
-  ${colors.yellow}${secp.etc.bytesToHex(pubKey)}${colors.reset}
-  
-  ${colors.bright}Compressed PubKey:${colors.reset} 
-  ${colors.magenta}${secp.etc.bytesToHex(compressedPubKey)}${colors.reset}
-  
-  ${colors.cyan}═════════════════════════════════════${colors.reset}
-  
-  ${colors.red}Closing after 1 minute...${colors.reset}
-  `);
+  console.log("Key Generation");
+  console.log("Private Key:", secp.etc.bytesToHex(privKey));
+  console.log("Address:", hashPubKey.slice(-40));
+  console.log("Public Key:", secp.etc.bytesToHex(pubKey));
+  console.log("Compressed PubKey:", secp.etc.bytesToHex(compressedPubKey));
+  console.log("Closing after 1 minute...");
 
   setTimeout(() => {
     process.exit();

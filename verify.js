@@ -10,41 +10,15 @@ secp.etc.hmacSha256Sync = (k, ...m) =>
 // node.js 18 and older, requires polyfilling globalThis.crypto
 if (!globalThis.crypto) globalThis.crypto = webcrypto;
 
-const colors = {
-  reset: "\x1b[0m",
-  bright: "\x1b[1m",
-  cyan: "\x1b[36m",
-  yellow: "\x1b[33m",
-  green: "\x1b[32m",
-  blue: "\x1b[34m",
-  red: "\x1b[31m",
-  magenta: "\x1b[35m",
-};
-
 const verify = async (signature, msgHash, pubKey) => {
   const isValid = secp.verify(signature, msgHash, pubKey);
 
-  console.log(`
-  ${colors.cyan}╔═══════════════════════════════════╗${colors.reset}
-  ${colors.cyan}║${colors.reset}  ${colors.yellow}🔍   SIGNATURE VERIFICATION  🔍${colors.reset}  ${colors.cyan}║${colors.reset}
-  ${colors.cyan}╚═══════════════════════════════════╝${colors.reset}
-
-  ${colors.bright}Signature:${colors.reset}      
-  ${colors.green}${signature}${colors.reset}
-
-  ${colors.bright}Message Hash:${colors.reset}   
-  ${colors.blue}${msgHash}${colors.reset}
-
-  ${colors.bright}Public Key:${colors.reset}     
-  ${colors.yellow}${pubKey}${colors.reset}
-
-  ${colors.bright}Is Valid:${colors.reset}       
-  ${colors.magenta}${isValid}${colors.reset}
-
-  ${colors.cyan}═════════════════════════════════════${colors.reset}
-
-  ${colors.red}Closing after 1 minute...${colors.reset}
-  `);
+  console.log("Signature Verification");
+  console.log("Signature:", signature);
+  console.log("Message Hash:", msgHash);
+  console.log("Public Key:", pubKey);
+  console.log("Is Valid:", isValid);
+  console.log("Closing after 1 minute...");
 
   setTimeout(() => {
     process.exit();
@@ -61,7 +35,7 @@ rl.question("Enter signature: ", (sig) => {
     rl.question("Enter public key: ", (pubKey) => {
       if (!sig || !msgHash || !pubKey) {
         console.error(
-          `${colors.red}Error: Please provide a signature, message hash, and public key as parameters.${colors.reset}`
+          "Error: Please provide a signature, message hash, and public key as parameters."
         );
         rl.close();
       } else {
