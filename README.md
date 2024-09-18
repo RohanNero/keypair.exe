@@ -11,7 +11,7 @@ You don't need to use the executables at all, you can interact with the source c
 ### Generating a keypair
 
 ```shell
-node scripts/create.js
+node create.js
 ```
 
 ### Signing a message
@@ -19,7 +19,7 @@ node scripts/create.js
 _Remove the `0x` prefix from hex strings before calling the function._
 
 ```shell
-node scripts/sign.js
+node sign.js
 ```
 
 ### Verifying a message
@@ -27,7 +27,7 @@ node scripts/sign.js
 _The public key, `pubKey`, can be compressed or uncompressed. When inputting a hex string, remove the `0x` prefix before calling the function._
 
 ```shell
-node scripts/verify.js
+node verify.js
 ```
 
 ## Executables
@@ -56,28 +56,34 @@ Package.json:
 
 ```json
 "scripts": {
-    "hash-shell-create": "powershell -Command \"get-FileHash executables/create.exe\"",
-    "hash-shell-sign": "powershell -Command \"get-FileHash executables/sign.exe\"",
-    "hash-shell-verify": "powershell -Command \"get-FileHash executables/verify.exe\"",
-    "hash-bash-create": "bash -c \"shasum -a 256 executables/create.exe\"",
-    "hash-bash-sign": "bash -c \"shasum -a 256 executables/sign.exe\"",
-    "hash-bash-verify": "bash -c \"shasum -a 256 executables/verify.exe\""
-  },
+    "create": "node create.js",
+    "sign": "node sign.js",
+    "verify": "node verify.js",
+    "build-create": "nexe create.js -o _create.exe --build --target windows-x64-16.17.1",
+    "build-sign": "nexe sign.js -o _sign.exe --build --target windows-x64-16.17.1",
+    "build-verify": "nexe verify.js -o _verify.exe --build --target windows-x64-16.17.1",
+    "hash-shell-create": "powershell -Command \"get-FileHash _create.exe\"",
+    "hash-shell-sign": "powershell -Command \"get-FileHash _sign.exe\"",
+    "hash-shell-verify": "powershell -Command \"get-FileHash _verify.exe\"",
+    "hash-bash-create": "bash -c \"shasum -a 256 _create.exe\"",
+    "hash-bash-sign": "bash -c \"shasum -a 256 _sign.exe\"",
+    "hash-bash-verify": "bash -c \"shasum -a 256 _verify.exe\""
+  }
 ```
 
 #### SHA256 Hashes
 
 Create.exe
 
-`adb0cd7567b0576d77409b85a1d6f273ff6f8eeb87861e37a8e780e159a403af`
+`4512a3362ad6f1ecfa9d9b45c47f228af40b7913b20cd69951bc4d01bad8beee`
 
 Sign.exe
 
-`286735ed35a366c01f4ecca09a3e502653258b3088b5810672d473b49c02f2e2`
+`f304c91b9259f14aa9abe0951caa401819d1412da77aa41df700eb9b388d35ec`
 
 Verify.exe
 
-`d934fbb0cfe3df18ce391c6444e4d13fd3e3ec8275ed85b768f5c3e6c6e56aec`
+`9682e584f79d7ac799464f9121a2002995989d3d97d7fa4bcc153e8822320d38`
 
 ### Rebuild
 
@@ -92,19 +98,19 @@ npm i -g nexe
 Create.js:
 
 ```shell
-nexe scripts/create.js -o executables/create.exe --build --target windows-x64-16.17.1
+nexe create.js -o _create.exe --build --target windows-x64-16.17.1
 ```
 
 Sign.js:
 
 ```shell
-nexe scripts/sign.js -o executables/sign.exe --build --target windows-x64-16.17.1
+nexe sign.js -o _sign.exe --build --target windows-x64-16.17.1
 ```
 
 Verify.js:
 
 ```shell
-nexe scripts/verify.js -o executables/verify.exe --build --target windows-x64-16.17.1
+nexe verify.js -o _verify.exe --build --target windows-x64-16.17.1
 ```
 
 ## Output
