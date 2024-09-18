@@ -42,6 +42,8 @@ node scripts/verify.js
 
 #### Commands
 
+There are `scripts` inside the `package.json` for both Powershell and Bash.
+
 Powershell:
 
 `Get-FileHash -Algorithm SHA256 <FILE_PATH>`
@@ -50,19 +52,32 @@ Bash:
 
 `shasum -a256 <FILE_PATH>`
 
+Package.json:
+
+```json
+"scripts": {
+    "hash-shell-create": "powershell -Command \"get-FileHash executables/create.exe\"",
+    "hash-shell-sign": "powershell -Command \"get-FileHash executables/sign.exe\"",
+    "hash-shell-verify": "powershell -Command \"get-FileHash executables/verify.exe\"",
+    "hash-bash-create": "bash -c \"shasum -a 256 executables/create.exe\"",
+    "hash-bash-sign": "bash -c \"shasum -a 256 executables/sign.exe\"",
+    "hash-bash-verify": "bash -c \"shasum -a 256 executables/verify.exe\""
+  },
+```
+
 #### SHA256 Hashes
 
 Create.exe
 
-`c375fec136f713f5e6cf77bfa271e746eb0179bfa68c6bc503bb75dbb983579a`
+`adb0cd7567b0576d77409b85a1d6f273ff6f8eeb87861e37a8e780e159a403af`
 
 Sign.exe
 
-`37127d4922cc2dbea600d133c8f2f25660ed294ed405ab5bc8eafb2af55ebefe`
+`286735ed35a366c01f4ecca09a3e502653258b3088b5810672d473b49c02f2e2`
 
 Verify.exe
 
-`337ca20424b2ccd7697c5d3e829de24ac3418ee75c9d86f045774ebd76220d27`
+`d934fbb0cfe3df18ce391c6444e4d13fd3e3ec8275ed85b768f5c3e6c6e56aec`
 
 ### Rebuild
 

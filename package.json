@@ -13,7 +13,13 @@
     "verify": "node scripts/verify.js",
     "build-create": "nexe scripts/create.js -o executables/create.exe --build --target windows-x64-16.17.1",
     "build-sign": "nexe scripts/sign.js -o executables/sign.exe --build --target windows-x64-16.17.1",
-    "build-verify": "nexe scripts/verify.js -o executables/verify.exe --build --target windows-x64-16.17.1"
+    "build-verify": "nexe scripts/verify.js -o executables/verify.exe --build --target windows-x64-16.17.1",
+    "hash-shell-create": "powershell -Command \"get-FileHash executables/create.exe\"",
+    "hash-shell-sign": "powershell -Command \"get-FileHash executables/sign.exe\"",
+    "hash-shell-verify": "powershell -Command \"get-FileHash executables/verify.exe\"",
+    "hash-bash-create": "bash -c \"shasum -a 256 executables/create.exe\"",
+    "hash-bash-sign": "bash -c \"shasum -a 256 executables/sign.exe\"",
+    "hash-bash-verify": "bash -c \"shasum -a 256 executables/verify.exe\""
   },
   "dependencies": {
     "@noble/hashes": "^1.5.0",
