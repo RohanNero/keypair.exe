@@ -1,6 +1,6 @@
 # Executable Keypairs
 
-Contains executables for generating a keypair, signing a message, and verifying a message.
+Contains executables, created with [Nexe](https://github.com/nexe/nexe), for generating a keypair, signing a message, and verifying a message.
 
 _This repo relies entirely on [Paul Miller](https://github.com/paulmillr)'s [@noble/secp256k1](https://github.com/paulmillr/noble-secp256k1) and [@noble/hashes](https://github.com/paulmillr/noble-hashes) libraries._
 
