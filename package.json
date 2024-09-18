@@ -3,10 +3,18 @@
   "version": "0.0.1",
   "description": "Scripts and executables for keypair generation, and both message signing and message verification using the @noble/secp256k1 and @noble/hashes libraries.",
   "files": [
-    "create.js",
-    "sign.js",
-    "verify.js"
+    "executables/*",
+    "images/*",
+    "scripts/*"
   ],
+  "scripts": {
+    "create": "node scripts/create.js",
+    "sign": "node scripts/sign.js",
+    "verify": "node scripts/verify.js",
+    "buildCreate": "nexe scripts/create.js -o executables/create.exe --build --target windows-x64-16.17.1",
+    "buildSign": "nexe scripts/sign.js -o executables/sign.exe --build --target windows-x64-16.17.1",
+    "buildVerify": "nexe scripts/verify.js -o executables/verify.exe --build --target windows-x64-16.17.1"
+  },
   "dependencies": {
     "@noble/hashes": "^1.5.0",
     "@noble/secp256k1": "^2.1.0"

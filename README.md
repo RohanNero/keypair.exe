@@ -11,7 +11,7 @@ You don't need to use the executables at all, you can interact with the source c
 ### Generating a keypair
 
 ```shell
-node create.js
+node scripts/create.js
 ```
 
 ### Signing a message
@@ -19,7 +19,7 @@ node create.js
 _Remove the `0x` prefix from hex strings before calling the function._
 
 ```shell
-node sign.js
+node scripts/sign.js
 ```
 
 ### Verifying a message
@@ -27,7 +27,7 @@ node sign.js
 _The public key, `pubKey`, can be compressed or uncompressed. When inputting a hex string, remove the `0x` prefix before calling the function._
 
 ```shell
-node verify.js
+node scripts/verify.js
 ```
 
 ## Executables
@@ -54,15 +54,15 @@ Bash:
 
 Create.exe
 
-`ad82f2c1ae51104341ed80110381876634e2b4aa59e604e1096bc54eb2e13d2f`
+`c375fec136f713f5e6cf77bfa271e746eb0179bfa68c6bc503bb75dbb983579a`
 
 Sign.exe
 
-`12117dc3e9fdd65695d02d4110767420c45b0281bcd38d7e07b7daeb7c5f4fff`
+`37127d4922cc2dbea600d133c8f2f25660ed294ed405ab5bc8eafb2af55ebefe`
 
 Verify.exe
 
-`7008c810fa3b6279b613dcda1a13b17441fbe91315f79181b0ee353f78859ecb`
+`337ca20424b2ccd7697c5d3e829de24ac3418ee75c9d86f045774ebd76220d27`
 
 ### Rebuild
 
@@ -77,19 +77,19 @@ npm i -g nexe
 Create.js:
 
 ```shell
-nexe create.js -o create.exe --build --target windows-x64-16.17.1
+nexe scripts/create.js -o executables/create.exe --build --target windows-x64-16.17.1
 ```
 
 Sign.js:
 
 ```shell
-nexe sign.js -o sign.exe --build --target windows-x64-16.17.1
+nexe scripts/sign.js -o executables/sign.exe --build --target windows-x64-16.17.1
 ```
 
 Verify.js:
 
 ```shell
-nexe verify.js -o verify.exe --build --target windows-x64-16.17.1
+nexe scripts/verify.js -o executables/verify.exe --build --target windows-x64-16.17.1
 ```
 
 ## Output
