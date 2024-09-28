@@ -1,4 +1,4 @@
-# Executable Keypairs
+# Keypair.exe - Ethereum
 
 Contains executables, created with [Nexe](https://github.com/nexe/nexe), for generating a keypair, signing a message, and verifying a message.
 
