@@ -75,15 +75,15 @@ Package.json:
 
 Create.exe
 
-``
+`7c51611b979aca326b37a67b2e591b9ce60d1a5e93bcb2af1ccd1c48c15449fd`
 
 Sign.exe
 
-``
+`239e54ef86339da8ec2f17581d28f51ba77a07506de4c3771614c769d88df25f`
 
 Verify.exe
 
-``
+`600f52902cc3dbbf02e360b7927dae8096d1394e0fc03ca89204f9aa3fcf83f5`
 
 ### Rebuild
 
