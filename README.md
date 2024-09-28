@@ -1,8 +1,8 @@
-# Keypair.exe - Ethereum
+# Keypair.exe - Solana
 
 Contains executables, created with [Nexe](https://github.com/nexe/nexe), for generating a keypair, signing a message, and verifying a message.
 
-_This repo relies entirely on [Paul Miller](https://github.com/paulmillr)'s [@noble/secp256k1](https://github.com/paulmillr/noble-secp256k1) and [@noble/hashes](https://github.com/paulmillr/noble-hashes) libraries._
+_This repo relies entirely on [Paul Miller](https://github.com/paulmillr)'s [@noble/ed25519](https://github.com/paulmillr/noble-ed25519) and [@noble/hashes](https://github.com/paulmillr/noble-hashes) libraries._
 
 ## Scripts
 
@@ -75,15 +75,15 @@ Package.json:
 
 Create.exe
 
-`4512a3362ad6f1ecfa9d9b45c47f228af40b7913b20cd69951bc4d01bad8beee`
+``
 
 Sign.exe
 
-`a1c9a30819671974b03300cf9479a04499664661f857a2977fe9804451a88e6c`
+``
 
 Verify.exe
 
-`f9de2672e75ed022516556efeccef46675d601491718308ae9886884c366f421`
+``
 
 ### Rebuild
 
