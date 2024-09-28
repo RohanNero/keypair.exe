@@ -2,7 +2,7 @@
 
 Contains executables, created with [Nexe](https://github.com/nexe/nexe), for generating a keypair, signing a message, and verifying a message.
 
-_This repo relies entirely on [Paul Miller](https://github.com/paulmillr)'s [@noble/ed25519](https://github.com/paulmillr/noble-ed25519) and [@noble/hashes](https://github.com/paulmillr/noble-hashes) libraries._
+_This repo relies entirely on [Paul Miller](https://github.com/paulmillr)'s [@noble/ed25519](https://github.com/paulmillr/noble-ed25519) and [@noble/hashes](https://github.com/paulmillr/noble-hashes) libraries, as well as the [bs58](https://www.npmjs.com/package/bs58) library._
 
 ## Scripts
 
